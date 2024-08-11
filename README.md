@@ -96,13 +96,13 @@ To run the application using Docker:
 1. Build the Docker image:
 
    ```bash
-   docker build -t your-nodejs-app .
+   docker build -t ee-tool-belt .
    ```
    
 2. Run the Docker container:
 
    ```bash
-   docker run -p 4321:4321 your-nodejs-app
+   docker run -p 4321:4321 ee-tool-belt
    ```
    
 3. The application should be accessible at http://localhost:4321.

@@ -6,10 +6,9 @@
  * @author Mike Odom
  * @copyright 2024 Mike Odom
  * @license 
- * This code is released under the Creative Commons Zero (CC0) license.
- * You are free to use, modify, and distribute this software without 
- * any restrictions or conditions.
- * 
+ * This code is released under the GNU General Public License v3.
+ * Reference LICENSE.md for details of any restrictions or conditions.
+ *
  * See the full license here: https://creativecommons.org/publicdomain/zero/1.0/
  */
 const express = require('express');

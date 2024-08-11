@@ -132,7 +132,7 @@ Contributions are what make the open-source community such an amazing place to l
 5. Open a Pull Request
 
 ### License
-This code is released under the GNU General Public LIcnse v3. Please see the LICENSE.md file for more detailed information regarding the license.
+This code is released under the GNU General Public LIcnse v3. Please see the LICENSE file for more detailed information regarding the license.
 
 ### Contact
 Mike Odom - @modom-ofn

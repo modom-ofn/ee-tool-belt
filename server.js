@@ -1,9 +1,23 @@
+/**
+ * @fileoverview
+ * This app provides simple network troubleshooting tools for 
+ * containerized environments.
+ * 
+ * @author Mike Odom
+ * @copyright 2024 Mike Odom
+ * @license 
+ * This code is released under the Creative Commons Zero (CC0) license.
+ * You are free to use, modify, and distribute this software without 
+ * any restrictions or conditions.
+ * 
+ * See the full license here: https://creativecommons.org/publicdomain/zero/1.0/
+ */
 const express = require('express');
 const axios = require('axios');
 const app = express();
 const tls = require('tls');
 const dns = require('dns');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4321;
 
 // App List 
 // ./testconnectivity - (endpoint)
@@ -15,14 +29,14 @@ const PORT = process.env.PORT || 3000;
 // ./rate-limit-test - (url, count)
 
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
+    res.send('Hello, World! The ee-tool-belt app is online.');
 });
 
 
 app.get('/testconnectivity', async (req, res) => {
-    // Example IP Address Usage: "http://localhost:3000/testconnectivity?endpoint=http://1.2.3.4"
-	// Example FQDN Usage: "http://localhost:3000/testconnectivity?endpoint=https://www.humana.com"
-	// Example FQDN with a File Endpoint Usage: "http://localhost:3000/testconnectivity?endpoint=https://www.humana.com/todos/1"
+    // Example IP Address Usage: "http://localhost:4321/testconnectivity?endpoint=http://1.2.3.4"
+	// Example FQDN Usage: "http://localhost:4321/testconnectivity?endpoint=https://www.google.com"
+	// Example FQDN with a File Endpoint Usage: "http://localhost:4321/testconnectivity?endpoint=https://www.google.com/todos/1"
 
 	const fullEndpoint = req.query.endpoint;
 
@@ -62,8 +76,8 @@ app.get('/testconnectivity', async (req, res) => {
 });
 
 app.get('/latencyrun', async (req, res) => {
-	// Example IP Address Usage: "http://localhost:3000/latencyrun?endpoint=http://1.2.3.4&times=10"
-	// Example FQDN Usage: "http://localhost:3000/latencyrun?endpoint=https://www.humana.com&times=10"
+	// Example IP Address Usage: "http://localhost:4321/latencyrun?endpoint=http://1.2.3.4&times=10"
+	// Example FQDN Usage: "http://localhost:4321/latencyrun?endpoint=https://www.google.com&times=10"
 	
 	const endpoint = req.query.endpoint;
     const times = parseInt(req.query.times);
@@ -117,7 +131,7 @@ app.get('/latencyrun', async (req, res) => {
 });
 
 app.get('/fetchHeaders', async (req, res) => {
-	// Example Usage: "http://localhost:3000/fetchHeaders?url=https://www.humana.com"
+	// Example Usage: "http://localhost:4321/fetchHeaders?url=https://www.google.com"
 
     const targetURL = req.query.url;
 
@@ -144,7 +158,7 @@ app.get('/fetchHeaders', async (req, res) => {
 });
 
 app.get('/fetchSSLCert', (req, res) => {
-    // Example Usage: "http://localhost:3000/fetchSSLCert?url=https://www.humana.com"
+    // Example Usage: "http://localhost:4321/fetchSSLCert?url=https://www.google.com"
 	
 	const targetURL = req.query.url;
 
@@ -191,7 +205,7 @@ app.get('/fetchSSLCert', (req, res) => {
 });
 
 app.get('/dnslookup', (req, res) => {
-	// Example Usage: "http://localhost:3000/dnslookup?domain=www.humana.com"
+	// Example Usage: "http://localhost:4321/dnslookup?domain=www.google.com"
 	
     const domain = req.query.domain;
 
@@ -213,7 +227,7 @@ app.get('/dnslookup', (req, res) => {
 });
 
 app.get('/reverse-dns', (req, res) => {
-	// Example Usage: "http://localhost:3000/reverse-dns?ip=8.8.8.8"
+	// Example Usage: "http://localhost:4321/reverse-dns?ip=8.8.8.8"
 	
     const ip = req.query.ip;
 
@@ -233,7 +247,7 @@ app.get('/reverse-dns', (req, res) => {
 });
 
 app.get('/rate-limit-test', async (req, res) => {
-	// Example Usage: "http://localhost:3000/rate-limit-test?url=https://www.humana.com/data&count=100"
+	// Example Usage: "http://localhost:4321/rate-limit-test?url=https://www.google.com/data&count=100"
 	
     const targetUrl = req.query.url;
     const requestCount = parseInt(req.query.count) || 5;  // Default to 5 requests
